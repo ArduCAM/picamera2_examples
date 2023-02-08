@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# To run this example, update libcamera-dev to version 0.0.10.
+# To run this example, update libcamera-dev to version 0.0.12.
 
 import time
 
@@ -17,9 +17,9 @@ time.sleep(1)
 
 # AfMode: Set the AF mode (manual, auto, continuous)
 # LensPosition: Manual focus, Set the lens position.
-picam2.set_controls({"AfMode": 0, "LensPosition": 100.0})
+picam2.set_controls({"AfMode": 0, "LensPosition": 1})
 time.sleep(5)
 
-picam2.set_controls({"LensPosition": 500.0})
+picam2.set_controls({"LensPosition": 5})
 
 time.sleep(5)
