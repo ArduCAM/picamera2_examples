@@ -13,6 +13,7 @@ picam2.configure(preview_config)
 picam2.start()
 time.sleep(1)
 
+# If your libcamera-dev version is below 0.0.10, please use the following code.
 picam2.set_controls({"AfTrigger": 0})
 # If your libcamera-dev version is 0.0.10, use the following code.
 # AfMode Set the AF mode (manual, auto, continuous)
