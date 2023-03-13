@@ -1,19 +1,23 @@
+#!/usr/bin/python3
+
 import time
-import cv2
-from picamera2 import MappedArray, Picamera2, Preview
 
-cv2.startWindowThread()
+from picamera2 import Picamera2, Preview
+
+exposure_time =  20000
+i = 1
+
 picam2 = Picamera2()
-config = picam2.create_still_configuration(main={"format": 'RGB888', "size": (1920, 1080)})
-picam2.configure(config)
-exposure_time = 2000000
+# picam2.start_preview(Preview.QTGL)
 
-picam2.set_controls({"ExposureTime": exposure_time,"AnalogueGain": 1.0})
+capture_config = picam2.create_still_configuration(main={"format": 'RGB888', "size": (1920, 1080)})
+picam2.configure(capture_config)
+
+
+picam2.set_controls({"ExposureTime": exp,"AnalogueGain": 1.0})
 picam2.start()
-while True:
-    RGB888 = picam2.capture_array("main")
-    cv2.imshow("Camera", RGB888)
-    cv2.waitKey(1)
+RGB888 = picam2.capture_array("main")
+print("Start save ldr_{:02d}.jpg".format(i))
+picam2.switch_mode_and_capture_file(capture_config, "ldr_{:02d}.jpg".format(i))
 picam2.stop()
-
-cv2.destroyAllWindows()
+print("Save ldr_{:02d}.jpg success".format(i))
