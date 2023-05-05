@@ -4,13 +4,9 @@ import cv2
 import time
 from picamera2 import Picamera2, Preview
 
-import os
-os.environ.pop("QT_QPA_PLATFORM_PLUGIN_PATH")
-
-
 picam2 = Picamera2()
 
-preview_config = picam2.create_preview_configuration(main={"size": (800, 600)})
+preview_config = picam2.create_preview_configuration(main={"size": (1920, 1080)})
 config = picam2.create_still_configuration(main={"size": (9152, 6944), "format": "RGB888"}, buffer_count=1)
 
 picam2.configure(preview_config)
