@@ -1,10 +1,8 @@
 #!/usr/bin/python3
 
-import time
-
 from picamera2 import Picamera2, Preview
 
-exposure_time =  20000
+EXPOURSE_TIME =  20000
 i = 1
 
 picam2 = Picamera2()
@@ -14,7 +12,7 @@ capture_config = picam2.create_still_configuration(main={"format": 'RGB888', "si
 picam2.configure(capture_config)
 
 
-picam2.set_controls({"ExposureTime": exp,"AnalogueGain": 1.0})
+picam2.set_controls({"ExposureTime": EXPOURSE_TIME, "AnalogueGain": 1.0})
 picam2.start()
 RGB888 = picam2.capture_array("main")
 print("Start save ldr_{:02d}.jpg".format(i))

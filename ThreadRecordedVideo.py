@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 # Live preview, enter `r` in the terminal to start recording video
 import time
+import threading
 
 from picamera2 import Picamera2
 from picamera2.encoders import H264Encoder
 from picamera2.outputs import FfmpegOutput
 from picamera2 import Picamera2, Preview
-import threading
+
 
 
 picam2 = Picamera2()

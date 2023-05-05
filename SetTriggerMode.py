@@ -1,26 +1,26 @@
 #!/usr/bin/python3
 
 import time
-
+import subprocess
 from picamera2 import Picamera2, Preview
 
-import subprocess
-
-
 def run_cmd(cmd):
+    """
+    Method for running the command line.
+    """
     print(f'{cmd}')
     try:
-        p = subprocess.run(cmd, universal_newlines=True, check=False, shell=True,
+        result = subprocess.run(cmd, universal_newlines=True, check=False, shell=True,
                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        print(p.stdout)
+        print(result.stdout)
         print("Set up successfully.")
-    except RuntimeError as e:
-        print(f'Error: {e}')
-    except:
+    except RuntimeError as error:
+        print(f'Error: {error}')
+    else:
         print("Set up error!")
 
-set_trigger_mode = "v4l2-ctl -d /dev/v4l-subdev0 -c trigger_mode=0"
-run_cmd(set_trigger_mode)
+SET_TRIGGRT_MODE = "v4l2-ctl -d /dev/v4l-subdev0 -c trigger_mode=0"
+run_cmd(SET_TRIGGRT_MODE)
 
 
 picam2 = Picamera2()

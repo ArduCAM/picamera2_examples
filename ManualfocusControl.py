@@ -19,7 +19,5 @@ time.sleep(1)
 # LensPosition: Manual focus, Set the lens position.
 picam2.set_controls({"AfMode": 0, "LensPosition": 1})
 time.sleep(5)
-
 picam2.set_controls({"AfMode": 0, "LensPosition": 5})
-
 time.sleep(5)

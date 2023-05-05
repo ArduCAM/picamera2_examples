@@ -5,12 +5,12 @@ If you cannot accept that the Raspberry Pi hardware only supports 1080P, this ex
 Using opencv for software encoding will have some problems, but you can optimize it according to this idea.
 This example only test in Pi4, if you use other hardware, maybe have more problem.
 '''
-import cv2
-from picamera2 import Picamera2
 
 import sys
 import signal
 import time
+import cv2
+from picamera2 import Picamera2
 
 def signal_handler(signal, frame):
     print('Program exits normally.')
