@@ -3,7 +3,7 @@ import cv2
 from picamera2 import Picamera2
 
 picam2 = Picamera2()
-preview_config = picam2.create_preview_configuration(main={"size": (4656, 3496)})
+preview_config = picam2.create_preview_configuration(main={"size": (4656, 3496)}, buffer_count=1)
 picam2.configure(preview_config)
 
 FRAME_RATE = 9
