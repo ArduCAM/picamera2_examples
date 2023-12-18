@@ -18,5 +18,4 @@ sudo apt install -y libatlas-base-dev
 sudo apt install -y ffmpeg
 sudo apt install -y python3-pip
 sudo pip3 install numpy --upgrade
-sudo pip3 install picamera2 --upgrade
 ```
